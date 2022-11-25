@@ -1,6 +1,5 @@
 import unittest
 import requests
-
 class TestFlask(unittest.TestCase):
 
     def test_story1_put_correct_response(self):
@@ -9,10 +8,10 @@ class TestFlask(unittest.TestCase):
                     "translations":[
                         {"language":"en", "translation":"hello"},
                         {"language":"fr", "translation":"bonjour"},
-                        {"language":"it", "translation":"ciao"},
+                        {"language":"it", "translation":"ciao"}
                     ]
                 }
-        response = requests.put(url="http://localhost:8080/api/words", data=payload)
+        response = requests.put(url="http://localhost:8080/api/words", json=payload)
 
         expected = payload
         expected["url"] = "http://localhost:8080/api/words/key-hello"
@@ -25,7 +24,7 @@ class TestFlask(unittest.TestCase):
                     "shittranslations":[
                         {"language":"en", "translation":"hello"},
                         {"language":"fr", "translation":"bonjour"},
-                        {"language":"it", "translation":"ciao"},
+                        {"language":"it", "translation":"ciao"}
                     ]
                 }
         response = requests.put(url="http://localhost:8080/api/words", data=payload)
